@@ -28,6 +28,30 @@ public class 无重复字符的最长子串 {
         return maxLength;
     }
 
+
+    public int lengthOfLongestSubstring1(String s){
+        int len = s.length();
+        Set<Character> window = new HashSet<>();
+        int left = 0, right = 0;
+        int res = 0;
+        while (right < len){
+            //窗口向右移动
+            char c = s.charAt(right);
+            right++;
+
+            //判断是否左边窗口需要缩减，如果已经包含，那就需要缩减
+            while (window.contains(c)){
+                //窗口向左移动
+                window.remove(s.charAt(left));
+                left++;
+            }
+            window.add(c);
+            res = Math.max(res, window.size());
+        }
+        return res;
+    }
+
+
     public static void main(String[] args) {
         String s = "pwwkew";
         无重复字符的最长子串 ss = new 无重复字符的最长子串();
