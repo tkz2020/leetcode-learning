@@ -1,6 +1,5 @@
 package org.example.linked.list;
 
-import javax.swing.*;
 
 public class 反转链表 {
 
@@ -31,7 +30,31 @@ public class 反转链表 {
     }
 
 
-    public static void main(String[] args) {
+    /**
+     * 翻转链表(递归操作)
+     * @param head
+     * @return
+     */
+    public ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null){
+            return head;
+        }
 
+        ListNode tmp = reverseList1(head.next);
+        ListNode t1 = head.next;
+        t1.next = head;
+        head.next = null;
+        return tmp;
+    }
+
+
+    public static void main(String[] args) {
+        ListNode listNode5 = new ListNode(5, null);
+        ListNode listNode4 = new ListNode(4, listNode5);
+        ListNode listNode3 = new ListNode(3, listNode4);
+        ListNode listNode2 = new ListNode(2, listNode3);
+        ListNode listNode1 = new ListNode(1, listNode2);
+        反转链表 ss = new 反转链表();
+        ss.reverseList1(listNode1);
     }
 }
