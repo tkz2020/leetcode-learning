@@ -21,29 +21,29 @@ public class 多个数组求交集 {
      * @param nums
      * @return
      */
-    public List<Integer> intersection(int[][] nums) {
-        if (nums == null || nums.length == 0){
-            return new ArrayList<>();
-        }
-
-        Map<Integer, Integer> data = new HashMap<>();
-        int len = nums.length;
-        for (int i = 0; i < len; i++){
-            int[] num = nums[i];
-            for (int j = 0; j < num.length; j++){
-                data.put(num[j], data.getOrDefault(num[j], 0) + 1);
-            }
-        }
-
-        List<Integer> result = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> map : data.entrySet()){
-            if (map.getValue() == len){
-                result.add(map.getKey());
-            }
-        }
-        Collections.sort(result);
-        return result;
-    }
+//    public List<Integer> intersection(int[][] nums) {
+//        if (nums == null || nums.length == 0){
+//            return new ArrayList<>();
+//        }
+//
+//        Map<Integer, Integer> data = new HashMap<>();
+//        int len = nums.length;
+//        for (int i = 0; i < len; i++){
+//            int[] num = nums[i];
+//            for (int j = 0; j < num.length; j++){
+//                data.put(num[j], data.getOrDefault(num[j], 0) + 1);
+//            }
+//        }
+//
+//        List<Integer> result = new ArrayList<>();
+//        for (Map.Entry<Integer, Integer> map : data.entrySet()){
+//            if (map.getValue() == len){
+//                result.add(map.getKey());
+//            }
+//        }
+//        Collections.sort(result);
+//        return result;
+//    }
 
     /**
      * 求数组交集

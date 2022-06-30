@@ -1,6 +1,6 @@
 package org.example.dynamic.programming;
 
-public class 最长公共子序列 {
+public class 最长公共子序列1 {
 
     /**
      * 剑指 Offer II 095. 最长公共子序列
@@ -60,7 +60,7 @@ public class 最长公共子序列 {
     public static void main(String[] args) {
         String text1 = "abcde";
         String text2 = "ace";
-        最长公共子序列 ss = new 最长公共子序列();
+        最长公共子序列1 ss = new 最长公共子序列1();
         System.out.println(ss.longestCommonSubsequence(text1, text2));
     }
 }

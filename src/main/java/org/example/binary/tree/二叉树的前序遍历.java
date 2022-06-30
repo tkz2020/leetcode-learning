@@ -63,7 +63,7 @@ public class 二叉树的前序遍历 {
                 node = node.left;
             }
             node = deque.pop();
-            node = node.left;
+            node = node.right;
         }
         return resultList;
     }

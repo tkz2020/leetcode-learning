@@ -37,6 +37,34 @@ public class 删除链表的倒数第N个结点 {
     }
 
 
+    /**
+     * 删除链表中倒数第N个节点，先用快慢指针找到倒数第N个节点
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+        if (head == null){
+            return head;
+        }
+
+        //定义两个快慢指针
+        ListNode dynamic = new ListNode(-1, head);
+        ListNode fast = dynamic, slow = dynamic;
+        for (int i = 1; i <= n+1; i++){
+            fast = fast.next;
+        }
+
+        while (fast != null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+        return dynamic.next;
+    }
+
+
     private int getListLength(ListNode head){
         if (head == null){
             return 0;

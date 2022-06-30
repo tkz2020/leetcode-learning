@@ -1,9 +1,6 @@
 package org.example.binary.tree;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 /**
  * 二叉树的中序遍历：左子树--->根节点--->右子树
@@ -67,7 +64,56 @@ public class 二叉树的中序遍历 {
     }
 
 
-    public static void main(String[] args) {
+    /**
+     * 二叉树的中序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal2(TreeNode root){
+        if (root == null){
+            return new ArrayList<>();
+        }
 
+        List<Integer> resultList = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || stack.size() > 0){
+            if (root != null){
+                stack.add(root);
+                root = root.left;
+            } else {
+                TreeNode tmp = stack.pop();
+                resultList.add(tmp.val);
+                root = tmp.right;
+            }
+        }
+        return resultList;
+    }
+
+
+    public int[] singleNumber(int[] nums) {
+        if (nums == null || nums.length == 0){
+            return new int[]{};
+        }
+
+        Map<Integer, Integer> count = new HashMap<>();
+        for (int i = 0; i < nums.length; i++){
+            count.put(nums[i], count.getOrDefault(nums[i], 0) + 1);
+        }
+
+        int[] result = new int[2];
+        int index = 0;
+        for (Map.Entry<Integer, Integer> entry : count.entrySet()){
+            if (entry.getValue() == 1){
+                result[index++] = entry.getKey();
+            }
+        }
+        return result;
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,2,1,3,2,5};
+        二叉树的中序遍历 ss = new 二叉树的中序遍历();
+        ss.singleNumber(nums);
     }
 }

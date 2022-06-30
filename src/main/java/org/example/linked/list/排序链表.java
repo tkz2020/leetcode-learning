@@ -9,17 +9,24 @@ public class 排序链表 {
      * @return
      */
     public ListNode sortList(ListNode head) {
-        return null;
-    }
-
-
-    public ListNode sortList(ListNode head, ListNode tail){
-        if (head == null){
+        if (head == null || head.next == null){
             return head;
         }
 
-        return null;
+        //寻找链表的中节点
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        ListNode tmp = slow.next;
+        slow.next = null;
+        ListNode leftNode = sortList(head);
+        ListNode rightNode = sortList(tmp);
+        return mergeListNode(leftNode, rightNode);
     }
+
 
     private ListNode mergeListNode(ListNode head1, ListNode head2){
         if (head1 == null || head2 == null){
