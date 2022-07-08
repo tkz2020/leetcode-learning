@@ -55,6 +55,7 @@ public class 多个数组求交集 {
             return new ArrayList<>();
         }
 
+        //判断每个数字出现的次数
         int[] result = new int[1001];
         for (int i = 0; i < nums.length; i++){
             for (int j = 0; j < nums[i].length; j++){
@@ -62,6 +63,7 @@ public class 多个数组求交集 {
             }
         }
 
+        //出现次数等于数组长度的，就是数组的交集
         List<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < result.length; i++){
             if (result[i] == nums.length){

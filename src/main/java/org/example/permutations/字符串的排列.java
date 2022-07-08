@@ -10,30 +10,28 @@ public class 字符串的排列 {
         }
 
         char[] chars = str.toCharArray();
-        int len = str.length();
-        boolean[] used = new boolean[len];
+        Arrays.sort(chars);
+        boolean[] used = new boolean[str.length()];
         StringBuilder path = new StringBuilder();
         ArrayList<String> resultList = new ArrayList<>();
-        dfs(chars, len, used, path, resultList);
+        dfs(chars, used, path, resultList);
         return resultList;
     }
 
 
     /**
-     *
+     * dfs
      * @param chars
-     * @param len
      * @param used
      * @param path
      */
-    public void dfs(char[] chars, int len, boolean[] used, StringBuilder path,
-                    List<String> resultList){
-        if (len == chars.length){
-            resultList.add(path.toString());
+    public void dfs(char[] chars, boolean[] used, StringBuilder path, List<String> resultList){
+        if (chars.length == path.length()){
+            resultList.add(new String(path));
             return;
         }
 
-        for (int i = 0; i < len; i++){
+        for (int i = 0; i < chars.length; i++){
             if (used[i]){
                 continue;
             }
@@ -42,9 +40,9 @@ public class 字符串的排列 {
                 continue;
             }
 
-            path.append(chars[i]);
             used[i] = true;
-            dfs(chars, len, used, path, resultList);
+            path.append(chars[i]);
+            dfs(chars, used, path, resultList);
             used[i] = false;
             path.deleteCharAt(path.length() - 1);
         }
@@ -52,7 +50,7 @@ public class 字符串的排列 {
 
 
     public static void main(String[] args) {
-        String s = "ab";
+        String s = "qwertyuio";
         字符串的排列 ss = new 字符串的排列();
         System.out.println(ss.Permutation(s));
     }

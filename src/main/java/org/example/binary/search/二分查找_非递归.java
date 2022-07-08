@@ -17,7 +17,7 @@ public class 二分查找_非递归 {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right){
-            int middle = (left + right) / 2;
+            int middle = (left + right) >> 1;
             if (nums[middle] < target){
                 left = middle + 1;
             } else if (nums[middle] > target){
@@ -30,7 +30,7 @@ public class 二分查找_非递归 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{5};
+        int[] nums = new int[]{1,2,3,4,5};
         int target = 5;
         二分查找_非递归 ss = new 二分查找_非递归();
         System.out.println(ss.binarySearch(nums, target));
