@@ -1,5 +1,7 @@
 package org.example.two.pointer;
 
+import java.util.Arrays;
+
 public class 下一个排列 {
 
     /**
@@ -34,6 +36,28 @@ public class 下一个排列 {
             left++;
             right--;
         }
+    }
+
+    /**
+     * https://leetcode.cn/problems/next-permutation/solution/ren-zhe-suan-fa-quan-wang-zui-qing-xi-yi-s3rr/
+     * @param nums
+     */
+    public void nextPermutation1(int[] nums) {
+        if (nums == null || nums.length == 0){
+            return;
+        }
+
+        int len = nums.length;
+        for (int i = len - 1; i >= 0; i--){
+            for (int j = len - 1; j > i; j--){
+                if (nums[i] < nums[j]){
+                    swap(nums, i, j);
+                    Arrays.sort(nums, i+1, len);
+                    return;
+                }
+            }
+        }
+        Arrays.sort(nums);
     }
 
 

@@ -41,7 +41,7 @@ public class 有效的括号 {
 
 
     public static void main(String[] args) {
-        String s = "()";
+        String s = "()[{}";
         有效的括号 ss = new 有效的括号();
         ss.isValid(s);
     }

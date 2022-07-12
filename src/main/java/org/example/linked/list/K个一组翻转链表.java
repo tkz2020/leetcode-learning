@@ -17,13 +17,17 @@ public class K个一组翻转链表 {
         ListNode pre = dynamic;
         ListNode tail = dynamic;
         while (tail.next != null){
-            //链表个数不足K的时候，直接返回。
-            for (int i = 0; i < k && tail != null; i++){
-                tail = tail.next;
+            for (int i = 1; i <= k; i++){
+                if (tail != null){
+                    tail = tail.next;
+                }
             }
+
+            // 如果 tail==null，即需要翻转的链表的节点个数小于k个，不执行翻转
             if (tail == null){
                 break;
             }
+
             //指向前一段链表的头节点
             ListNode start = pre.next;
 
@@ -39,7 +43,7 @@ public class K个一组翻转链表 {
 
             //重置pre和tail指针到下一段链表
             pre = start;
-            tail = pre;
+            tail = start;
         }
         return dynamic.next;
     }

@@ -42,6 +42,40 @@ public class 子集 {
     }
 
 
+    /**
+     * https://leetcode.cn/problems/subsets/
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsets1(int[] nums) {
+        if (nums == null || nums.length == 0){
+            return new ArrayList<>();
+        }
+
+        int len = nums.length;
+        List<List<Integer>> resultList = new ArrayList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int i = 0; i <= len; i++){
+            dfs(0, i, deque, nums, resultList);
+        }
+        return resultList;
+    }
+
+
+    public void dfs(int start, int k, Deque<Integer> cur, int[] nums, List<List<Integer>> resultList){
+        if (k == 0){
+            resultList.add(new ArrayList<>(cur));
+            return;
+        }
+
+        for (int i = start; i < nums.length; i++){
+            cur.addLast(nums[i]);
+            dfs(i+1, k-1, cur, nums, resultList);
+            cur.removeLast();
+        }
+    }
+
+
     public static void main(String[] args) {
 
     }
