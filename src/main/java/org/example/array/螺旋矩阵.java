@@ -1,8 +1,6 @@
 package org.example.array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class 螺旋矩阵 {
 

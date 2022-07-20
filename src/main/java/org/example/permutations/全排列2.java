@@ -14,6 +14,7 @@ public class 全排列2 {
             return new ArrayList<>();
         }
 
+        //todo 这块一定要注意先排序，不然有特殊case没法通过
         Arrays.sort(nums);
         int len = nums.length;
         int depth = 0;

@@ -12,11 +12,13 @@ public class 连续子数组的最大和二 {
 
         int len = array.length;
         int[] dp = new int[len];
-        int max = array[0];
         dp[0] = array[0];
+        int max = dp[0];
+        int right = 0;
         for (int i = 1; i < len; i++){
+            right++;
             dp[i] = Math.max(array[i], array[i] + dp[i-1]);
-            max = Math.max(max, dp[i]);
+
         }
         return null;
     }

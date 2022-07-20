@@ -1,5 +1,7 @@
 package org.example.dynamic.programming;
 
+import java.util.Arrays;
+
 public class 最长连续递增序列 {
 
     /**
@@ -76,10 +78,32 @@ public class 最长连续递增序列 {
         return maxLength;
     }
 
+
+    /**
+     * 用dp数组来统计每一位的连续长度
+     * @param nums
+     * @return
+     */
+    public int findLengthOfLCIS3(int[] nums){
+        int len = nums.length;
+        int[] dp = new int[len];
+        Arrays.fill(dp, 1);
+
+        int maxLength = 1;
+        for (int i = 1; i < len; i++){
+            if (nums[i] > nums[i-1]){
+                dp[i] = dp[i-1] + 1;
+            }
+            maxLength = Math.max(dp[i], maxLength);
+        }
+        return maxLength;
+    }
+
+
     public static void main(String[] args) {
-        int[] nums = new int[]{1,3,5,4,7};
+        int[] nums = new int[]{1};
         最长连续递增序列 ss = new 最长连续递增序列();
-        ss.findLengthOfLCIS2(nums);
+        ss.findLengthOfLCIS3(nums);
 
     }
 }

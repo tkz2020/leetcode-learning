@@ -64,6 +64,7 @@ public class 验证IP地址 {
 
             for (int j = 0; j < res[i].length(); j++){
                 char c = res[i].charAt(j);
+                //这块需要注意是从A到F  a到f
                 if ((c < '0' || c > '9') && (c < 'a' || c > 'f') && (c < 'A' || c > 'F')){
                     return false;
                 }
