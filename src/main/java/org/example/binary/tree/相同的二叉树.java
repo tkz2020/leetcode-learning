@@ -14,7 +14,7 @@ public class 相同的二叉树 {
             return true;
         }
 
-        if ((root1 == null && root2 != null) || (root1 != null && root2 == null)){
+        if (root1 == null || root2 == null){
             return false;
         }
 

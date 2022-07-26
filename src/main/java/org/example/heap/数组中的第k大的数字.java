@@ -20,11 +20,11 @@ public class 数组中的第k大的数字 {
 
         for (int i = 0; i < nums.length; i++){
             if (queue.size() < k){
-                queue.add(nums[i]);
+                queue.offer(nums[i]);
             } else {
                 if (nums[i] > queue.peek()){
                     queue.poll();
-                    queue.add(nums[i]);
+                    queue.offer(nums[i]);
                 }
             }
         }

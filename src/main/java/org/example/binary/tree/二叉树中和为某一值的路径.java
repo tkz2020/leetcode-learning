@@ -46,6 +46,50 @@ public class 二叉树中和为某一值的路径 {
         path.removeLast();
     }
 
+
+    public ArrayList<ArrayList<Integer>> FindPath1(TreeNode root,int expectNumber) {
+        if (root == null){
+            return new ArrayList<>();
+        }
+
+        Deque<Integer> path = new ArrayDeque<>();
+        ArrayList<ArrayList<Integer>> resultList = new ArrayList<>();
+        dfs(root, path, resultList);
+        if (resultList == null || resultList.size() == 0){
+            return new ArrayList<>();
+        }
+
+        ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
+        for (ArrayList<Integer> result : resultList){
+            int count = 0;
+            for (Integer res : result){
+                count += res;
+            }
+
+            if (count == expectNumber){
+                lists.add(result);
+            }
+        }
+        return lists;
+    }
+
+    public void dfs(TreeNode root, Deque<Integer> path, ArrayList<ArrayList<Integer>> resultList){
+        if (root == null){
+            return;
+        }
+
+        path.addLast(root.val);
+        if (root.left == null && root.right == null){
+            resultList.add(new ArrayList<>(path));
+        }
+
+        dfs(root.left, path, resultList);
+        dfs(root.right, path, resultList);
+
+        path.removeLast();
+    }
+
+
     public static void main(String[] args) {
 
     }
